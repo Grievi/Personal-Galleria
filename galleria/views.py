@@ -3,3 +3,6 @@ from django.http import HttpResponse
 
 def welcome(request):
     return HttpResponse('Welcome to photo Gallery')
+
+def photo(request):
+    
