@@ -72,7 +72,8 @@ class Img(models.Model):
     def delete_image(self):
         self.delete()
 
-
+class Meta:
+        ordering = ['date']
 
 
 
