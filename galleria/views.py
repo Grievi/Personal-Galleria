@@ -1,8 +1,9 @@
 from django.shortcuts import render
-from django.http import HttpResponse
+from .models import Img, Location
 
-def welcome(request):
-    return HttpResponse('Welcome to photo Gallery')
-
-def photo(request):
+def pics(request):
+    images = Img.objects.all()
+    locations = Location.get_locations()
+    print(locations)
+    return render (request, 'gallery/pics.html' , {'images': images[::-1], 'locations': locations})
     
