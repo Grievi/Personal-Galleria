@@ -63,7 +63,11 @@ class Img(models.Model):
     def update_image(cls, id, value):
         cls.objects.filter(id=id).update(image=value)
 
+    def __str__(self):
+        return self.name
 
+    def save_image(self):
+        self.save()
 
 
 
