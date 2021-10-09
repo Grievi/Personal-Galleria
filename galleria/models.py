@@ -1,14 +1,6 @@
 from django.db import models
 
 # Create your models here.
-class Img(models.Model):
-    img = models.ImageField(upload_to ='static/')
-    name = models.CharField(max_length=60)
-    description = models.TextField()
-    author = models.CharField(max_length=40, default='admin')
-    date = models.DateTimeField(auto_now_add=True)
-    # category = models.ForeignKey(Category)
-    # location = models.ForeignKey(Location)
 
 class Category(models.Model):
     name = models.CharField(max_length=60)
@@ -42,6 +34,20 @@ class Location(models.Model):
 
     def delete_locations(self):
         self.delete()
+
+class Img(models.Model):
+    img = models.ImageField(upload_to ='static/')
+    name = models.CharField(max_length=60)
+    description = models.TextField()
+    author = models.CharField(max_length=40, default='admin')
+    date = models.DateTimeField(auto_now_add=True)
+    category = models.ForeignKey(Category)
+    location = models.ForeignKey(Location)
+
+    @classmethod
+    def filter_by_location(cls, location):
+        image_location = Img.objects.filter(location__name=location).all()
+        return image_location
 
 
 
