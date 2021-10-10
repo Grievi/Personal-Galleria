@@ -3,19 +3,20 @@
 {% block content%}
 <div id="landing-page" class="container-fluid">
     <div>
-        <h1>La Galleria welcomes you to view our best photos and travels your mind to memories made and moments shared across locations and times!</h1>
+        <h1>La Galleria welcomes you to view our best photos and travels your mind to memories made and moments shared
+            across locations and times!</h1>
     </div>
     <div class="row">
         <div class="col-md-6  col-sm-6  col-lg-6">
             <h3>
-              La  Galleria
+                La Galleria
             </h3>
             <h3>
                 Search for different cateories and locations
             </h3>
         </div>
         <div class="col-md-6 col-sm-6  col-lg-6">
-            <p>lorem ipsum</p> 
+            <p>lorem ipsum</p>
         </div>
     </div>
 </div>
@@ -36,75 +37,44 @@
                 People
             </div>
         </div>
-<!-- the first row -->
-        <div class="row">
-            <div class="col-md-4">
-                <div class="card bg-dark text-white">
-                    <img src="..." class="card-img" alt="...">
-                    <div class="card-img-overlay">
-                      <h5 class="card-title">Card title</h5>
-                      <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                      <p class="card-text">Last updated 3 mins ago</p>
-                    </div>
-                  </div>
+        <!-- the first row -->
+        <div class="card-columns">
+            {% for image in images %}
+            <div class="card" data-toggle="modal" data-target="#{{image.id}}">
+                <img src="{{image.image.url}}" alt="{{image.name}}" class="card-img">
             </div>
-            <div class="col-md-4">
-                <div class="card bg-dark text-white">
-                    <img src="..." class="card-img" alt="...">
-                    <div class="card-img-overlay">
-                      <h5 class="card-title">Card title</h5>
-                      <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                      <p class="card-text">Last updated 3 mins ago</p>
-                    </div>
-                  </div>
-            </div>
-            <div class="col-md-4">
-                <div class="card bg-dark text-white">
-                    <img src="..." class="card-img" alt="...">
-                    <div class="card-img-overlay">
-                      <h5 class="card-title">Card title</h5>
-                      <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                      <p class="card-text">Last updated 3 mins ago</p>
-                    </div>
-                  </div>
-            </div>
-        </div>
 
-        <!-- the second row -->
-        <div class="row">
-            <div class="col-md-4">
-                <div class="card bg-dark text-white">
-                    <img src="..." class="card-img" alt="...">
-                    <div class="card-img-overlay">
-                      <h5 class="card-title">Card title</h5>
-                      <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                      <p class="card-text">Last updated 3 mins ago</p>
+
+            <div class="modal fade " id="{{image.id}}" tabindex="-1" role="dialog"
+                aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered modal-md" role="document">
+                    <div class="modal-content modalcard">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="imageheader">{{image.name}}</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <img src="{{image.image.url}}" alt="{{image.name}}" class="img-fluid">
+                            <p class="imgdesc text-center">{{image.description}}</p>
+                            <span class="btn btn-sm btn-outline-success">{{image.category}}</span> <a
+                                href="/location/{{image.location}}"
+                                class="btn btn-sm btn-outline-info">{{image.location}}</a>
+                        </div>
+                        <div class="modal-footer">
+                            <input class="form-control input-lg" type="text" value="{{image.image.url}}"
+                                id="{{image.id}}.url">
+                            <button class="btn btn-success btn-sm" onclick="copyLink('{{image.id}}.url')">Copy</button>
+                            <button type="button" class="btn btn-outline-danger btn-sm" data-dismiss="modal">Close
+                            </button>
+                        </div>
                     </div>
-                  </div>
+                </div>
             </div>
-            <div class="col-md-4">
-                <div class="card bg-dark text-white">
-                    <img src="..." class="card-img" alt="...">
-                    <div class="card-img-overlay">
-                      <h5 class="card-title">Card title</h5>
-                      <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                      <p class="card-text">Last updated 3 mins ago</p>
-                    </div>
-                  </div>
-            </div>
-            <div class="col-md-4">
-                <div class="card bg-dark text-white">
-                    <img src="..." class="card-img" alt="...">
-                    <div class="card-img-overlay">
-                      <h5 class="card-title">Card title</h5>
-                      <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                      <p class="card-text">Last updated 3 mins ago</p>
-                    </div>
-                  </div>
-            </div>
+            {% endfor %}
         </div>
     </div>
-    
 </div>
 
-{% endblock %}
+    {% endblock %}
