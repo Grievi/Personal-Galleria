@@ -1,5 +1,7 @@
 {% extends 'base.html' %}
 
+{% load django_bootstrap5 %}
+
 {% block content%}
 <div id="landing-page" class="container-fluid">
     <div>
@@ -7,7 +9,7 @@
             across locations and times!</h1>
     </div>
     <div class="row">
-        <div class="col-md-6  col-sm-6  col-lg-6">
+        <div id="section1" class="col-md-6  col-sm-6  col-lg-6">
             <h3>
                 La Galleria
             </h3>
@@ -15,7 +17,7 @@
                 Search for different cateories and locations
             </h3>
         </div>
-        <div class="col-md-6 col-sm-6  col-lg-6">
+        <div id="section2" class="col-md-6 col-sm-6  col-lg-6">
             <p>lorem ipsum</p>
         </div>
     </div>
