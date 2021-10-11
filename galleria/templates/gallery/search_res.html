@@ -40,9 +40,10 @@
                     <div class="modal-body">
                         <img src="{{image.img.url}}" alt="{{image.name}}" class="img-fluid">
                         <p class="text-center">{{image.description}}</p>
-                        <span class="btn btn-sm btn-outline-success">{{image.category}}</span> <a
+                        <span class=""> Category: {{image.category}}</span> 
+                        <p class="me-0">Located in: </p><a
                                 href="/location/{{image.location}}"
-                                class="btn btn-sm btn-outline-info">{{image.location}}</a>
+                                class="btn btn-sm btn-outline-info ">{{image.location}}</a>
                     </div>
                     <div class="modal-footer">
                         <input class="form-control input-lg" type="text" value="{{image.image.url}}"
