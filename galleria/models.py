@@ -36,7 +36,7 @@ class Location(models.Model):
         self.delete()
 
 class Img(models.Model):
-    img = models.ImageField(upload_to ='static/')
+    img = models.ImageField(upload_to ='images/')
     name = models.CharField(max_length=60)
     description = models.TextField()
     author = models.CharField(max_length=40, default='admin')
