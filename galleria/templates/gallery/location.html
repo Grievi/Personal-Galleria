@@ -2,49 +2,45 @@
 
 
 {% block content%}
-<div id="landing-page" class="container-fluid">
-    <div>
-        <h1>La Galleria welcomes you to view our best photos and travels your mind to memories made and moments shared
-            across locations and times!</h1>
-    </div>
-    <div class="row">
-        <div id="section1" class="col-md-6  col-sm-6  col-lg-6">
-            <h3>
+<div id="landing-page" class="container-fluid" style="height: 70vh; background-image: url(../../../static/assets/coff.jpg); color: white; opacity: .9;background-size:cover;background-repeat: no-repeat;" >
+   
+    <div class="row text-center ">
+        <div id="section1" >
+            <h4 >
                 La Galleria
-            </h3>
-            <h3>
+            </h4>
+            <h5>
                 Search for different cateories and locations
-            </h3>
-        </div>
-        <div id="section2" class="col-md-6 col-sm-6  col-lg-6">
-            <p>lorem ipsum</p>
+            </h5>
         </div>
     </div>
 </div>
 
-<div class="container-fluid" style=" background-image: linear-gradient(#4C8EB1,#E8E1C4, #82B9B3);">
+<div class="container-fluid" style=" background-image: linear-gradient(to right,#3B3C3E,#CF901E, #7F8082); ">
     <div class="container">
-        <div class="row">
-            <div class="col-md-3 ">
-               <a href="">Destination</a>
+        <div class="row " style="color: white;">
+            <div class="col-md-3  ">
+              <span class="fw-bold">Destination</span>
             </div>
             <div class="col-md-3 ">
-                <a href="">Interior-Deco</a>
+                <span class="fw-bold">Lifestyle</span>
             </div>
             <div class="col-md-3 ">
-               <a href="">Lifestyle</a>
+                <span class="fw-bold">Interior-Deco</span>
             </div>
             <div class="col-md-3 ">
-                <a href="">People</a>
+                <span class="fw-bold">People</span>
             </div>
         </div>
         <!-- the first row -->
     <div class="row">
         {% for image in images %}
-        <div class="card col-md-3 col-sm-12 col-lg-4 mb-3 g-1">
+        <div id="card-parent" style="height: 100%;
+        max-width:100%; border-radius: 7px; padding: 10px;" class="card col-md-3 col-sm-12 col-lg-4 g-1">
             <div class="card" data-bs-toggle="modal" data-bs-target="#modal{{image.id}}">
                 <img src="{{image.img.url}}" alt="{{image.name}}" class="card-img">
-                <p class="image-title">{{image.name}}</p>
+                <p class="image-title fw-bold">{{image.name}}</p>
+                <p class="me-0">Location: {{image.location}}</p>
             </div>
 
 
@@ -52,21 +48,20 @@
                 <div class="modal-dialog">
                   <div class="modal-content">
                     <div class="modal-header">
-                      <h5 class="modal-title">{{image.name}}</h5>
+                      <h5 class="modal-title fw-bold ">{{image.name}}</h5>
                       <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
                         <img src="{{image.img.url}}" alt="{{image.name}}" class="img-fluid">
-                        <p class="text-center">{{image.description}}</p>
-                        <span class=""> Category: {{image.category}}</span> 
-                        <p class="me-0">Located in: </p><a
+                        <p class="text-center fw-bold">{{image.description}}</p>
+                        <span class="fw-bold"> Category: {{image.category}}</span> 
+                        <p class="fw-bold">Located in: </p><a
                                 href="/location/{{image.location}}"
-                                class="btn btn-sm btn-outline-info ">{{image.location}}</a>
+                                class="btn btn-sm btn-outline-info  fw-bold">{{image.location}}</a>
                     </div>
                     <div class="modal-footer">
                         <input class="form-control input-lg" type="text" value="{{image.image.url}}"
                         id="{{image.id}}.url">
-                    
                     <button type="button" class="btn btn-outline-danger btn-sm" data-bs-dismiss="modal" aria-label="Close">Close</button>
                     </div>
                   </div>
