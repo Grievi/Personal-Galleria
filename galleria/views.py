@@ -10,7 +10,7 @@ def pics(request):
 def image_location(request, location):
     images =Img.filter_by_location(location)
     
-    return render(request, 'gallery/location.html', {'images_location': images})
+    return render(request, 'gallery/location.html', {'images': images})
 
 def search_results(request):
     
