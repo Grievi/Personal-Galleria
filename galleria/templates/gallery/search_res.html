@@ -1,25 +1,54 @@
 {% extends 'base.html' %}
 
-{% block content %}
-<div class="container">
 
-    {% if images %}
-    <h2 class="text-center" id="found">Found {{ images|length }} images in '{{message}}' category</h2>
-    {% else %}
-    <h2 class="text-center" id="foundnon"> Found 0 images for your search {{message}}</h2>
-
-    <a class="d-block mx-auto" href="/">
-        <button class="btn btn-sm btn-info d-block mx-auto">Back Home</button>
-    </a>
-    {% endif %}
-    {% if images %}
-    <div class="card-columns">
-        {% for image in images %}
-        <div class="card" data-toggle="modal" data-target="#{{image.id}}">
-            <img src="{{image.image.url}}" alt="{{image.name}}" class="card-img">
+{% block content%}
+<div id="landing-page" class="container-fluid">
+    <div>
+        <h1>La Galleria welcomes you to view our best photos and travels your mind to memories made and moments shared
+            across locations and times!</h1>
+    </div>
+    <div class="row">
+        <div id="section1" class="col-md-6  col-sm-6  col-lg-6">
+            <h3>
+                La Galleria
+            </h3>
+            <h3>
+                Search for different cateories and locations
+            </h3>
         </div>
+        <div id="section2" class="col-md-6 col-sm-6  col-lg-6">
+            <p>lorem ipsum</p>
+        </div>
+    </div>
+</div>
 
-                  <div class="modal" id="modal{{image.id}}" tabindex="-1" >
+<div class="container-fluid">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-3 ">
+               <a href="">Destination</a>
+            </div>
+            <div class="col-md-3 ">
+                <a href="">Interior-Deco</a>
+            </div>
+            <div class="col-md-3 ">
+               <a href="">Lifestyle</a>
+            </div>
+            <div class="col-md-3 ">
+                <a href="">People</a>
+            </div>
+        </div>
+        <!-- the first row -->
+    <div class="row">
+        {% for image in images %}
+        <div class="card col-md-3 col-sm-12 col-lg-4 mb-3 g-1">
+            <div class="card" data-bs-toggle="modal" data-bs-target="#modal{{image.id}}">
+                <img src="{{image.img.url}}" alt="{{image.name}}" class="card-img">
+                <p class="image-title">{{image.name}}</p>
+            </div>
+
+
+            <div class="modal" id="modal{{image.id}}" tabindex="-1" >
                 <div class="modal-dialog">
                   <div class="modal-content">
                     <div class="modal-header">
@@ -42,10 +71,11 @@
                   </div>
                 </div>
               </div>
-
-
+        </div>
         {% endfor %}
     </div>
-    {% endif %}
+
+    </div>
 </div>
-{% endblock %}
+
+    {% endblock %}

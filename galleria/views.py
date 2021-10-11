@@ -13,6 +13,7 @@ def image_location(request, location):
     return render(request, 'gallery/location.html', {'images_location': images})
 
 def search_results(request):
+    
     if 'imagesearch' in request.GET and request.GET["imagesearch"]:
         category = request.GET.get("imagesearch")
         searched_images = Img.search_by_category(category)
