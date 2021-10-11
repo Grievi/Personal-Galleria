@@ -4,12 +4,12 @@ from .models import Img, Location
 def pics(request):
     images = Img.objects.all()
     locations = Location.get_locations()
-    print(locations)
+    
     return render (request, 'gallery/pics.html' , {'images': images[::-1], 'locations': locations})
     
 def image_location(request, location):
     images =Img.filter_by_location(location)
-    print(images)
+    
     return render(request, 'gallery/location.html', {'images_location': images})
 
 def search_results(request):
@@ -17,7 +17,7 @@ def search_results(request):
         category = request.GET.get("imagesearch")
         searched_images = Img.search_by_category(category)
         message = f"{category}"
-        print(searched_images)
+        
         return render(request, 'gallery/search_res.html', {"message": message, "images": searched_images})
     else:
         message = "Enter a category to search images from"
