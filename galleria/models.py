@@ -1,5 +1,5 @@
 from django.db import models
-
+from cloudinary.models import CloudinaryField
 
 # Create your models here.
 
@@ -37,7 +37,7 @@ class Location(models.Model):
         self.delete()
 
 class Img(models.Model):
-    img = models.ImageField(upload_to ='images/')
+    img = CloudinaryField('image')
     name = models.CharField(max_length=60)
     description = models.TextField()
     author = models.CharField(max_length=40, default='admin')
