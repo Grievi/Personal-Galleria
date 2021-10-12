@@ -36,7 +36,7 @@
     <div class="row">
         {% for image in images %}
         <div id="card-parent" style="height: 100%;
-        max-width:100%; border-radius: 7px; padding: 10px;" class="card col-md-3 col-sm-12 col-lg-4 g-1">
+        max-width:100%; border-radius: 7px; padding: 10px;" class="card col-md-3 col-sm-12 col-lg-4 g-1 ">
             <div class="card " data-bs-toggle="modal" data-bs-target="#modal{{image.id}}">
                 <img src="{{image.img.url}}" alt="{{image.name}}" class="card-img">
                 <p class="image-title fw-bold">{{image.name}}</p>
@@ -62,6 +62,7 @@
                     <div class="modal-footer">
                         <input class="form-control input-lg" type="text" value="{{image.image.url}}"
                         id="{{image.id}}.url">
+                    <button id="btn-copy" class="btn btn-success btn-sm" value="{{image.img.url}}">Copy</button>
                     <button type="button" class="btn btn-outline-danger btn-sm" data-bs-dismiss="modal" aria-label="Close">Close</button>
                     </div>
                   </div>
@@ -71,6 +72,20 @@
         {% endfor %}
     </div>
 
+    </div>
+</div>
+<div class="modal fade" id="copied-url" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="alert alert-primary" role="alert">
+                    Copied
+                </div>
+            </div>
+        </div>
     </div>
 </div>
 
