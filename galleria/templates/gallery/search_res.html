@@ -33,45 +33,60 @@
             </div>
         </div>
         <!-- the first row -->
-    <div class="row">
-        {% for image in images %}
-        <div id="card-parent" style="height: 100%;
-        max-width:100%; border-radius: 7px; padding: 10px;" class="card col-md-3 col-sm-12 col-lg-4 g-1">
-            <div class="card" data-bs-toggle="modal" data-bs-target="#modal{{image.id}}">
-                <img src="{{image.img.url}}" alt="{{image.name}}" class="card-img">
-                <p class="image-title fw-bold">{{image.name}}</p>
-                <p class="me-0">category: {{image.category}}</p>
-            </div>
-
-
-            <div class="modal" id="modal{{image.id}}" tabindex="-1" >
-                <div class="modal-dialog">
-                  <div class="modal-content">
-                    <div class="modal-header">
-                      <h5 class="modal-title fw-bold ">{{image.name}}</h5>
-                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <div class="modal-body">
-                        <img src="{{image.img.url}}" alt="{{image.name}}" class="img-fluid">
-                        <p class="text-center fw-bold">{{image.description}}</p>
-                        <span class="fw-bold"> Category: {{image.category}}</span> 
-                        <p class="fw-bold">Located in: </p><a
-                                href="/location/{{image.location}}"
-                                class="btn btn-sm btn-outline-info  fw-bold">{{image.location}}</a>
-                    </div>
-                    <div class="modal-footer">
-                        <input class="form-control input-lg" type="text" value="{{image.image.url}}"
-                        id="{{image.id}}.url">
-                    <button type="button" class="btn btn-outline-danger btn-sm" data-bs-dismiss="modal" aria-label="Close">Close</button>
+        <div class="row">
+            {% for image in images %}
+            <div id="card-parent" style="height: 100%;
+            max-width:100%; border-radius: 7px; padding: 10px;" class="card col-md-3 col-sm-12 col-lg-4 g-1 ">
+                <div class="card " data-bs-toggle="modal" data-bs-target="#modal{{image.id}}">
+                    <img src="{{image.img.url}}" alt="{{image.name}}" class="card-img">
+                    <p class="image-title fw-bold">{{image.name}}</p>
+                    
+                </div>
+    
+    
+                <div class="modal" id="modal{{image.id}}" tabindex="-1" >
+                    <div class="modal-dialog">
+                      <div class="modal-content">
+                        <div class="modal-header">
+                          <h5 class="modal-title fw-bold ">{{image.name}}</h5>
+                          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <img src="{{image.img.url}}" alt="{{image.name}}" class="img-fluid">
+                            <p class="text-center fw-bold">{{image.description}}</p>
+                            <span class="fw-bold"> Category: {{image.category}}</span> 
+                            <p class="fw-bold">Located in: </p><a
+                                    href="/location/{{image.location}}"
+                                    class="btn btn-sm btn-outline-info  fw-bold">{{image.location}}</a>
+                        </div>
+                        <div class="modal-footer">
+                            <input class="form-control input-lg" type="text" value="{{image.image.url}}"
+                            id="{{image.id}}.url">
+                        <button id="btn-copy" class="btn btn-success btn-sm" value="{{image.img.url}}">Copy link</button>
+                        <button type="button" class="btn btn-outline-danger btn-sm" data-bs-dismiss="modal" aria-label="Close">Close</button>
+                        </div>
+                      </div>
                     </div>
                   </div>
-                </div>
-              </div>
+            </div>
+            {% endfor %}
         </div>
-        {% endfor %}
+    
+        </div>
     </div>
-
+    <div class="modal fade" id="copied-url" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="alert alert-primary" role="alert">
+                        Copied
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
-</div>
-
+    
     {% endblock %}
