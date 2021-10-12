@@ -4,7 +4,7 @@
 
 ## Description
 
-A personal Galleria is a simple dango application that displays a photo gallery to show beautiful images . Users get to view photos updated by the site admin. Users can see photos based on the location, by clicking on the listed locations in the menu. The search function will search photos based on the categories.
+A personal Galleria is a simple dango application that displays a photo gallery to show beautiful images . Users get to view photos updated by the site admin. Users can see photos based on the location, by clicking on the listed locations in the image and you can copy the link too. The search function will search photos based on the categories.
 
 ## Setup Requirements
 
