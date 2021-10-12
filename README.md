@@ -54,13 +54,13 @@ python manage.py runserver
 <img src="static/images/landing2.png" alt=""> 
 
 * click the image
-<img src="static/images/modal1.png" alt="">
+<img src="static/images/copylink.png" alt="">
 
 * filter by location
 <img src="static/images/filter_location.png" alt="">
 
 * search by category
-<img src="static/images/bycategory.png" alt="">
+<img src="static/images/category.png" alt="">
 
 *  Phone responsiveness
 <img src="static/images/phone1.png" alt="">
